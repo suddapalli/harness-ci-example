@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_suddapalli_harness_ci_example_1741015842926-push-trigger-input-set
+  identifier: Build_suddapalli_harness_ci_example_1741015842926pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: VJnewproject
+  pipeline:
+    identifier: Build_suddapalli_harness_ci_example_1741015842926
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>

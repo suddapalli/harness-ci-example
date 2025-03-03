@@ -15,7 +15,7 @@ spec:
        app: hello-app
    spec:
      containers:
-     - image: pavansa/node-hello-world-example:latest
+     - image:  nginx #pavansa/node-hello-world-example:latest
        name: hello-app
        ports:
        - containerPort: 3007

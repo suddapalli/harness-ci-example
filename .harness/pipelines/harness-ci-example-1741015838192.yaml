@@ -51,3 +51,40 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+    - stage:
+        name: deploy
+        identifier: deploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Asg
+          service:
+            serviceRef: vjservice
+          environment:
+            environmentRef: vjevn
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: vjinfra
+          execution:
+            steps:
+              - step:
+                  name: Asg Rolling Deploy
+                  identifier: AsgRollingDeploy
+                  type: AsgRollingDeploy
+                  timeout: 10m
+                  spec:
+                    useAlreadyRunningInstances: false
+            rollbackSteps:
+              - step:
+                  name: Asg Rolling Rollback
+                  identifier: AsgRollingRollback
+                  type: AsgRollingRollback
+                  timeout: 10m
+                  spec: {}
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback

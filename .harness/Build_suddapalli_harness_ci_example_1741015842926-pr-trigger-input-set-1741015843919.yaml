@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_suddapalli_harness_ci_example_1741015842926-pr-trigger-input-set
+  identifier: Build_suddapalli_harness_ci_example_1741015842926prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: VJnewproject
+  pipeline:
+    identifier: Build_suddapalli_harness_ci_example_1741015842926
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>

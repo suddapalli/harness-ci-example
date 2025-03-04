@@ -27,16 +27,11 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: BuildAndPushECR
                   name: BuildAndPushECR_1
                   identifier: BuildAndPushECR_1
-                  spec:
-                    connectorRef: account.VJharness
-                    region: ca-central-1
-                    account: "039612869963"
-                    imageName: vjimg
-                    tags:
-                      - latest
+                  template:
+                    templateRef: temp
+                    versionLabel: "1"
     - stage:
         name: deploy
         identifier: deploy
